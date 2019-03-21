@@ -1,43 +1,48 @@
 {
   "coffee" : [
       {
+        "id": 1,
         "name": "Master Origin Costa Rica",
         "info" : {
             "image": "/12170384113694/C-0402-2000x2000.png?impolicy=product&imwidth=130",
             "aromatic-profile": "Malty",
-            "intensity": "7" 
+            "intensity": 7 
         }
       },
       {
+        "id": 2,
         "name": "Caffè Venezia",
         "info" : {
             "image": "/11989571928094/C-0390-2000x2000.png?impolicy=product&imwidth=130",
             "aromatic-profile": "Wild & Floral",
-            "intensity": "7" 
+            "intensity": 7 
         }
       },
       {
+        "id": 3,
         "name": "Café Istanbul",
         "info" : {
             "image": "/11990350626846/C-0391-2000x2000.png?impolicy=product&imwidth=130",
             "aromatic-profile": "Spicy, Intense",
-            "intensity": "10" 
+            "intensity": 10 
         }
       },
       {
+        "id": 4,
         "name": "Kazaar",
         "info" : {
             "image": "/10386859360286/C-0089-2000x2000.png?impolicy=product&imwidth=130",
             "aromatic-profile": "Exceptionally Intense & Syrupy",
-            "intensity": "12" 
+            "intensity": 12 
         }
       },
       {
-        "name": "fillIn",
+        "id": 5,
+        "name": "Dharkan",
         "info" : {
             "image": "/10386859556894/C-0090-2000x2000.png?impolicy=product&imwidth=130",
             "aromatic-profile": "Long Roasted and Velvety",
-            "intensity": "11"  
+            "intensity": 11  
         }
       }
   ]  
