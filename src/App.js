@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import './App.css';
-import Header from './Components/Header/Header';
-import CoffeeList from './Components/CoffeeList/CoffeeList'
+import Header from './Components/Header';
+import CoffeeList from './Components/CoffeeList';
+import CoffeeInfo from './Components/CoffeeInfo';
+
 
 function Home() {
   return <h2>Home</h2>;
@@ -16,12 +18,22 @@ class App extends Component {
   }
 
   componentDidMount() {
-    fetch("/API/coffee-sample-data.json")
-      .then(response => response.json())
-      .then(({ coffee }) => this.setState({ coffeeList: coffee }));
+    this.getCoffee();
+  }
+
+
+  async getCoffee() {
+    try {
+      const res = await fetch("/API/coffee-sample-data.json");
+      const { coffee: coffeeList = []} =  await res.json();
+      this.setState({ coffeeList });      
+    } catch (error) {
+      console.error(error.message);
+    }
   }
 
   render() {
+    const { coffeeList } = this.state;
     return (
       <Router>
         <div>
@@ -29,9 +41,17 @@ class App extends Component {
 
           <Route path="/" exact component={Home} />
           <Route 
-            path="/coffee/"
-            render={(props) => <CoffeeList coffeeList={this.state.coffeeList} />} 
+            exact
+            path="/coffee"
+            render={({ match }) => <CoffeeList match={match} coffeeList={coffeeList} />} 
           />
+
+          <Route
+            exact 
+            path={`/coffee/:id`} 
+            render={({ match }) => <CoffeeInfo match={match} coffeeList={coffeeList}/>}
+          />
+
         </div>
       </Router>
     );
