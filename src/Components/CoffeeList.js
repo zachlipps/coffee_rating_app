@@ -1,17 +1,26 @@
 import React, { Component } from 'react';
-import CoffeeListItem from './CoffeeListItem';
+import CoffeeLink from './CoffeeLink';
+import styled from 'styled-components';
 
+const StyledList = styled.div`
+    border: 5px solid purple;
+    padding: 0;
+    justify-content: center;
+    flex-flow:  column;
+    display: flex;
+    flex: 1 100%;
+`;
 
-class CoffeeLinkList extends Component {
+class CoffeeLinksList extends Component {
 
   render() {
     let { coffeeList, match } = this.props;
     return (
-      <div>
-        { coffeeList.map(coffee => (<CoffeeListItem key={coffee.id} coffee={coffee} match={match} />)) }
-      </div>
+      <StyledList>
+        { coffeeList.map(coffee => (<CoffeeLink key={coffee.id} coffee={coffee} match={match} />)) }
+      </StyledList>
     );
   }
 }
 
-export default CoffeeLinkList;
+export default CoffeeLinksList;

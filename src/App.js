@@ -2,8 +2,15 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import './App.css';
 import Header from './Components/Header';
-import CoffeeList from './Components/CoffeeList';
+import CoffeeLinksList from './Components/CoffeeList';
 import CoffeeInfo from './Components/CoffeeInfo';
+import styled from 'styled-components';
+
+const AppContainer = styled.div`
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+`;
 
 
 function Home() {
@@ -36,14 +43,13 @@ class App extends Component {
     const { coffeeList } = this.state;
     return (
       <Router>
-        <div>
+        <AppContainer>
           <Header/>
-
           <Route path="/" exact component={Home} />
           <Route 
             exact
             path="/coffee"
-            render={({ match }) => <CoffeeList match={match} coffeeList={coffeeList} />} 
+            render={({ match }) => <CoffeeLinksList match={match} coffeeList={coffeeList} />} 
           />
 
           <Route
@@ -51,8 +57,7 @@ class App extends Component {
             path={`/coffee/:id`} 
             render={({ match }) => <CoffeeInfo match={match} coffeeList={coffeeList}/>}
           />
-
-        </div>
+        </AppContainer>
       </Router>
     );
   }

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+
 import { CONSTANTS } from '../Utils/Constants';
 
 class CoffeeInfo extends Component {
@@ -31,7 +32,7 @@ class CoffeeInfo extends Component {
                 <div>{aromatic_profile}</div>
                 <div>Intensity: {intensity}</div>
                 <img
-                    src={ CONSTANTS['IMAGE-ENDPOINT'] + image }
+                    src={ CONSTANTS['IMAGE_ENDPOINT'] + image }
                     alt=""
                 /> 
             </div>
