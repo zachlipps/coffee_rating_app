@@ -6,6 +6,7 @@ const StyledList = styled.div`
     justify-content: flex-end;
     background-color: salmon;
     display: flex;
+    flex-shink: 0;
     flex: 1 100%;
     flex-flow: row wrap;
 `;

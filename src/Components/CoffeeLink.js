@@ -6,19 +6,21 @@ import { CONSTANTS } from '../Utils/Constants';
 
 const LinkContainer = styled.div`
     display: flex;
-    border: 3px solid blue;
     justify-content: space-around;
 `;
 
 const StyledLink = styled(Link)`
-    border-radius: 25px;
-    padding: 20px;
-    border: 3px solid black;
-    flex-basis: 50%;
-
-    color: black;
     display: flex;
+    flex-direction: row;
+    flex-basis: 50%;
+    justify-content: space-around;
+    align-items: center;
+
+    padding: 20px;
+    border-bottom: 1px solid black;
+    color: black;
     text-decoration: none;
+
     
     &:hover {
         background: skyblue;
@@ -27,29 +29,33 @@ const StyledLink = styled(Link)`
 
 const ImageContainer = styled.div`
     display: flex;
-
+    
 `;
 
 
 const InfoContainer = styled.div`
     display: flex;
+    width: 200px;
 `;
 
 class CoffeeLink extends Component {
     render() {
-        let { coffee : {name='-', id="_", info: { image='-'}} = {}, match } = this.props;
+        let { coffee : {name='-', id="_", info: { image='-', aromatic_profile = '-'}} = {}, match } = this.props;
         return (
             <LinkContainer>
                 <StyledLink to={`${match.url}${id}`}>
-                    <InfoContainer>
-                        {name}
-                    </InfoContainer>
                     <ImageContainer>
                         <img
                             src={ CONSTANTS['IMAGE_ENDPOINT'] + image }
                             alt=""
                         /> 
                     </ImageContainer>
+                    <InfoContainer>
+                        {name}
+                    </InfoContainer>
+                    <InfoContainer>
+                        {aromatic_profile}
+                    </InfoContainer>
                 </StyledLink>
             </LinkContainer>
         )

@@ -3,12 +3,13 @@ import CoffeeLink from './CoffeeLink';
 import styled from 'styled-components';
 
 const StyledList = styled.div`
-    border: 5px solid purple;
-    padding: 0;
+    margin: 10px;
     justify-content: center;
     flex-flow:  column;
     display: flex;
     flex: 1 100%;
+    flex-grow: 1;
+    overflow-y: auto;
 `;
 
 class CoffeeLinksList extends Component {
