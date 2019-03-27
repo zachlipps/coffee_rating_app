@@ -28,14 +28,21 @@ const ImageContainer = styled.div`
     align-items: center;
 `;
 
-const LabelInfoContainer = styled.div`
+const CoffeeIntensityInfo = styled.div`
     display: flex;
-    flex-direction: column;
     justify-content: flex-start;
     flex: 1;
     text-orientation: upright;
     writing-mode: vertical-rl;
     align-items: center;
+`;
+
+const LabelInfoContainer = styled.div`
+    display: flex;
+    flex-direction: row-wrap;
+    justify-content: flex-start;
+    flex: 4;
+    font-size: 80%;
 `;
 
 const LabelHeader = styled.div`
@@ -65,6 +72,7 @@ const LabelBottom = styled.div`
 class CoffeeInfo extends Component {
     state = {
         coffee: {},
+        placeholder_text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
     }
 
     componentDidMount(){
@@ -86,18 +94,16 @@ class CoffeeInfo extends Component {
 
     renderIntensityMeter(intensity) {
         let intensityMeter = new Array(CONSTANTS.MAX_INTENSITY).fill(".");
-        for(let i = CONSTANTS.MAX_INTENSITY - 1; i >= 0 ; i --) {
+        for(let i = 0; i < intensity ; i ++) {
             if (i < intensity) {
-                intensityMeter[i] = ("*")
-            } else {
-                intensityMeter[i] =  (".")
+                intensityMeter[i] = ("*");
             }
         }
-        return intensityMeter.join("");
+        return intensityMeter.reverse().join("");
     }
 
     render() {
-        let { coffee: { name , info: {aromatic_profile = '-', intensity='-', image } = {} } = {}} = this.state;
+        let { coffee: { name = "-" , info: {aromatic_profile = '-', intensity='-', image } = {} } = {}, placeholder_text = '-'} = this.state;
         return (
             <CoffeeInfoContainer>
                 <CoffeeInfoLabel>
@@ -109,17 +115,20 @@ class CoffeeInfo extends Component {
                         <div>{"Aromatic Profile: " + aromatic_profile}</div>
                     </LabelRow>
                     <LabelBottom>
-                        <ImageContainer>
-                            <img
-                                src={ CONSTANTS['IMAGE_ENDPOINT'] + image }
-                                alt=""
-                            /> 
-                        </ImageContainer>
                         <LabelInfoContainer>
+                            {placeholder_text}
+                        </LabelInfoContainer>
+                        <CoffeeIntensityInfo>
                             <div>{ this.renderIntensityMeter(intensity) }</div>
-                        </LabelInfoContainer> 
+                        </CoffeeIntensityInfo> 
                     </LabelBottom>
                 </CoffeeInfoLabel>
+                <ImageContainer>
+                    <img
+                        src={ CONSTANTS['IMAGE_ENDPOINT'] + image }
+                        alt=""
+                    /> 
+                </ImageContainer>
             </CoffeeInfoContainer>
         )
     }
