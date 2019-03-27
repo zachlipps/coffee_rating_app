@@ -87,7 +87,7 @@ class CoffeeInfo extends Component {
     renderIntensityMeter(intensity) {
         let intensityMeter = new Array(CONSTANTS.MAX_INTENSITY).fill(".");
         for(let i = CONSTANTS.MAX_INTENSITY - 1; i >= 0 ; i --) {
-            if (i > intensity) {
+            if (i < intensity) {
                 intensityMeter[i] = ("*")
             } else {
                 intensityMeter[i] =  (".")
