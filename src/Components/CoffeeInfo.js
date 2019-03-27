@@ -28,6 +28,7 @@ const ImageContainer = styled.div`
     align-items: center;
 `;
 
+
 const CoffeeIntensityInfo = styled.div`
     display: flex;
     justify-content: flex-start;
@@ -37,6 +38,7 @@ const CoffeeIntensityInfo = styled.div`
     align-items: center;
 `;
 
+
 const LabelInfoContainer = styled.div`
     display: flex;
     flex-direction: row-wrap;
@@ -44,6 +46,7 @@ const LabelInfoContainer = styled.div`
     flex: 4;
     font-size: 80%;
 `;
+
 
 const LabelHeader = styled.div`
     display: flex;
