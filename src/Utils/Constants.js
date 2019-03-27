@@ -1,3 +1,4 @@
 export const CONSTANTS = {
-    "IMAGE_ENDPOINT" : "https://www.nespresso.com/ecom/medias/sys_master/public"
+    "IMAGE_ENDPOINT" : "https://www.nespresso.com/ecom/medias/sys_master/public",
+    "MAX_INTENSITY": 12
 };

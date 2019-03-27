@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import './App.css';
 import Header from './Components/Header';
-import CoffeeLinksList from './Components/CoffeeList';
+import CoffeeList from './Components/CoffeeList';
 import CoffeeInfo from './Components/CoffeeInfo';
 import styled from 'styled-components';
 
@@ -14,7 +14,7 @@ const AppContainer = styled.div`
 
 
 function Home() {
-  return <h2>Home</h2>;
+  return <h2>Coffee Finder</h2>;
 }
 
 
@@ -49,7 +49,7 @@ class App extends Component {
           <Route 
             exact
             path="/coffee"
-            render={({ match }) => <CoffeeLinksList match={match} coffeeList={coffeeList} />} 
+            render={({ match }) => <CoffeeList match={match} coffeeList={coffeeList} />} 
           />
 
           <Route
