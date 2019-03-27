@@ -28,6 +28,7 @@ const ImageContainer = styled.div`
     align-items: center;
 `;
 
+
 const CoffeeIntensityInfo = styled.div`
     display: flex;
     justify-content: flex-start;
@@ -104,6 +105,7 @@ class CoffeeInfo extends Component {
 
     render() {
         let { coffee: { name = "-" , info: {aromatic_profile = '-', intensity='-', image } = {} } = {}, placeholder_text = '-'} = this.state;
+
         return (
             <CoffeeInfoContainer>
                 <CoffeeInfoLabel>
